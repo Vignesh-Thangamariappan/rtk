@@ -1,0 +1,20 @@
+{
+  "assignee_id": "aaaaaaaa-0001-4000-a000-000000000001",
+  "assignee_type": "agent",
+  "created_at": "2026-04-14T10:00:00Z",
+  "creator_id": "bbbbbbbb-0001-4000-b000-000000000001",
+  "creator_type": "user",
+  "description": "**Review requested by Alex (Code Review Lead)**\n\nPlease review the following PR diff and return your findings to me on the parent task thread.\n\n**PR**: https://github.com/example/example-repo/pull/101\n**Branch**: DEMO-99/bug/app-hang-on-background-sync -> develop\n\n**Files Changed:**\n- `App/Notifications/NotificationProvider.swift` (+10, -4)\n- `AppTests/NotificationProviderTests.swift` (+12, -0)\n\n**Summary**: Fixes app hang during background sync. `permissionHandler.status` was read on main thread causing deadlock. Fix moves the read to a background thread and dispatches sync back to main thread.\n\n**Review Scope**: Diffs only. Return findings to Alex on parent task DEMO-12.\n\n**Reviewers**: Correctness, Safety, Scope, Tests, Code Quality.",
+  "due_date": "2026-04-20T00:00:00Z",
+  "id": "cccccccc-0001-4000-c000-000000000001",
+  "identifier": "DEMO-13",
+  "number": 13,
+  "parent_issue_id": "cccccccc-0002-4000-c000-000000000002",
+  "position": 0,
+  "priority": "high",
+  "project_id": null,
+  "status": "in_review",
+  "title": "Code Review: PR 101 - Fix app hang on background sync",
+  "updated_at": "2026-04-14T11:30:00Z",
+  "workspace_id": "dddddddd-0001-4000-d000-000000000001"
+}

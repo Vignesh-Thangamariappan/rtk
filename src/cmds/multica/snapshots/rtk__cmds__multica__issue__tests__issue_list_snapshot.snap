@@ -1,0 +1,11 @@
+---
+source: src/cmds/multica/issue.rs
+expression: output
+---
+ID          STATUS        PRI      AGENT   TITLE
+------------------------------------------------------------------------------------------
+DEMO-13     review        hi       yes     Code Review: PR 101 - Fix app hang on background sync
+DEMO-12     active        urg      yes     Contact List Crash on iOS 17
+DEMO-11     todo          hi       yes     Fix failed payments for non-US billing addresses
+DEMO-10     done          med      no      Calendar pagination crash on week boundary
+DEMO-9      todo          lo       no      Search bar fires API call on every keystroke

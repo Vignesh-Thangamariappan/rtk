@@ -1,0 +1,7 @@
+---
+source: src/cmds/multica/issue.rs
+expression: output
+---
+RUN       STATUS      STARTED           DURATION  SUMMARY
+------------------------------------------------------------------------------------------
+ffffffff  completed   2026-04-14 10:00  ~5m       Fetched task details and moved DEMO-13 to in_progress. Checked out repository and inspected only the PR diff files. Found one test-quality risk in added async waits; no correctness or safety breakage. Posted structured review to Alex on parent issue DEMO-12 and set issue to in_review.
