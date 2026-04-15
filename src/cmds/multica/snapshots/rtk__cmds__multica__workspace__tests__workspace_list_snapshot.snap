@@ -1,0 +1,7 @@
+---
+source: src/cmds/multica/workspace.rs
+expression: output
+---
+NAME                  WATCHING
+------------------------------
+My Workspace          *

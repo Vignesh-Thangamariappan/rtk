@@ -1,0 +1,23 @@
+[filters.multica-daemon]
+description = "Compact multica daemon status — strip UUIDs, PIDs, internal runtime IDs, preserve status/uptime/agents"
+match_command = "^multica\\s+daemon\\s+status\\b"
+strip_ansi = true
+strip_lines_matching = [
+  "^\\s*$",
+  "\"pid\"",
+  "\"device_name\"",
+  "\"daemon_id\"",
+  "\"server_url\"",
+  "\"runtimes\"",
+  "^\\s*\"[0-9a-f]{8}-[0-9a-f]{4}",
+  "^\\s*\\]",
+  "^\\s*\\{\\s*$",
+  "^\\s*\\}\\s*$",
+]
+truncate_lines_at = 120
+max_lines = 30
+
+[[tests.multica-daemon]]
+name = "passes status and uptime lines"
+input = "{\n  \"status\": \"running\",\n  \"uptime\": \"6h35m\",\n  \"pid\": 91722\n}"
+expected = "{\n  \"status\": \"running\",\n  \"uptime\": \"6h35m\"\n}"

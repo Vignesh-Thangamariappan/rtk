@@ -17,6 +17,7 @@ use cmds::js::{
     vitest_cmd,
 };
 use cmds::jvm::gradlew_cmd;
+use cmds::multica::multica_cmd;
 use cmds::python::{mypy_cmd, pip_cmd, pytest_cmd, ruff_cmd};
 use cmds::ruby::{rake_cmd, rspec_cmd, rubocop_cmd};
 use cmds::rust::{cargo_cmd, runner};
@@ -194,6 +195,15 @@ enum Commands {
     Acli {
         /// Product: jira, confluence, admin
         product: String,
+        /// Additional arguments
+        #[arg(trailing_var_arg = true, allow_hyphen_values = true)]
+        args: Vec<String>,
+    },
+
+    /// Multica managed-agents CLI with token-optimized output
+    Multica {
+        /// Subcommand: issue, workspace, daemon, config, auth
+        subcommand: String,
         /// Additional arguments
         #[arg(trailing_var_arg = true, allow_hyphen_values = true)]
         args: Vec<String>,
@@ -1584,6 +1594,10 @@ fn run_cli() -> Result<i32> {
         Commands::Aws { subcommand, args } => aws_cmd::run(&subcommand, &args, cli.verbose)?,
 
         Commands::Acli { product, args } => acli_cmd::run(&product, &args, cli.verbose)?,
+
+        Commands::Multica { subcommand, args } => {
+            multica_cmd::run(&subcommand, &args, cli.verbose)?
+        }
 
         Commands::Psql { args } => psql_cmd::run(&args, cli.verbose)?,
 

@@ -1,0 +1,17 @@
+[filters.multica-config]
+description = "Compact multica config show — strip internal server/token fields, keep agent-relevant settings"
+match_command = "^multica\\s+config\\s+show\\b"
+strip_ansi = true
+strip_lines_matching = [
+  "^\\s*$",
+  "token|Token|TOKEN",
+  "server_url|ServerUrl",
+  "device_id|DeviceId",
+]
+truncate_lines_at = 120
+max_lines = 20
+
+[[tests.multica-config]]
+name = "strips token and server_url fields"
+input = "workspace: my-workspace\ntoken: abc123secret\nserver_url: http://localhost:8080\nagent: claude"
+expected = "workspace: my-workspace\nagent: claude"

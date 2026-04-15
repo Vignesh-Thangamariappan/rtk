@@ -560,6 +560,28 @@ pub const RULES: &[RtkRule] = &[
         subcmd_status: &[],
     },
     RtkRule {
+        pattern: r"^multica\s+(issue|workspace|daemon|config)\b",
+        rtk_cmd: "rtk multica",
+        rewrite_prefixes: &["multica"],
+        category: "Multica",
+        savings_pct: 75.0,
+        subcmd_savings: &[
+            ("issue list", 75.0),
+            ("issue get", 85.0),
+            ("issue runs", 65.0),
+            ("workspace list", 60.0),
+        ],
+        subcmd_status: &[
+            ("issue create", RtkStatus::Passthrough),
+            ("issue update", RtkStatus::Passthrough),
+            ("issue status", RtkStatus::Passthrough),
+            ("issue assign", RtkStatus::Passthrough),
+            ("issue comment", RtkStatus::Passthrough),
+            ("daemon", RtkStatus::Passthrough),
+            ("config", RtkStatus::Passthrough),
+        ],
+    },
+    RtkRule {
         pattern: r"^psql(\s|$)",
         rtk_cmd: "rtk psql",
         rewrite_prefixes: &["psql"],
